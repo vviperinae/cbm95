@@ -341,7 +341,7 @@
   <div class="hero-mesh"></div>
   <div class="hero-grid"></div>
   <div class="hero-content">
-    <div class="hero-badge"><span class="dot"></span>ISO-Compliant Biomedical Services · UAE</div>
+    <div class="hero-badge"><span class="dot"></span>ENAS Approved Lab · ISO-Compliant Biomedical Services · UAE</div>
     <h1>Precision Care for<br><em>Medical Equipment</em></h1>
     <p class="hero-sub">Trusted PPM, calibration, and repair solutions for hospitals, clinics, and laboratories across Abu Dhabi and the UAE. Accuracy that protects lives.</p>
     <div class="hero-btns">
@@ -364,7 +364,7 @@
   <div class="sec-label">What We Offer</div>
   <h2>Our Core Services</h2>
   <div class="divider"></div>
-  <p class="sec-lead">Comprehensive biomedical engineering solutions for the healthcare sector — from routine maintenance to emergency repairs.</p>
+  <p class="sec-lead">Comprehensive biomedical engineering solutions for the healthcare sector – from routine maintenance to emergency repairs.</p>
   <div class="services-grid">
     <div class="svc-card reveal">
       <div class="svc-icon">🔧</div>
@@ -381,7 +381,7 @@
     <div class="svc-card reveal d1">
       <div class="svc-icon">📏</div>
       <h3>Calibration Services</h3>
-      <p>Precise calibration ensuring accuracy and compliance — because every measurement matters in patient care.</p>
+      <p>Precise calibration ensuring accuracy and compliance – because every measurement matters in patient care.</p>
       <ul class="svc-list">
         <li>Temperature calibration</li>
         <li>Pressure calibration</li>
@@ -467,6 +467,7 @@
       <div class="panel-big">99%</div>
       <div class="panel-label">Client Satisfaction Rate</div>
       <div class="badge-row">
+        <span class="cbadge">ENAS Approved</span>
         <span class="cbadge">ISO Compliant</span>
         <span class="cbadge">UAE Licensed</span>
         <span class="cbadge">AMC Available</span>
@@ -483,7 +484,7 @@
   <div class="sec-label">Who We Serve</div>
   <h2>Industries We Serve</h2>
   <div class="divider"></div>
-  <p class="sec-lead">From large hospitals to specialized diagnostic centers — we serve every facility that depends on precise medical equipment.</p>
+  <p class="sec-lead">From large hospitals to specialized diagnostic centers – we serve every facility that depends on precise medical equipment.</p>
   <div class="ind-grid">
     <div class="ind-card reveal"><span class="ii">🏥</span><span>Hospitals</span></div>
     <div class="ind-card reveal d1"><span class="ii">🩺</span><span>Clinics</span></div>
@@ -503,7 +504,7 @@
     <div class="about-text reveal">
       <p>CBM Weighing and Standardization Lab L.L.C is a leading provider of biomedical maintenance, calibration, and compliance services based in Abu Dhabi, UAE.</p>
       <p>With a team of highly skilled and certified biomedical engineers, we support healthcare facilities in maintaining the highest standards of equipment performance and patient safety.</p>
-      <p>We are committed to delivering reliable, accurate, and timely services that keep your operations running — and your patients safe.</p>
+      <p>We are committed to delivering reliable, accurate, and timely services that keep your operations running – and your patients safe.</p>
       <div class="mv-grid">
         <div class="mv-card">
           <h4>🎯 Mission</h4>
@@ -545,8 +546,8 @@
       <p>Ready to schedule a service, request a quote, or enquire about AMC packages? We're here to help.</p>
       <div class="c-items">
         <div class="c-item"><div class="ci-icon">📍</div><div class="ci-text"><strong>Location</strong><span>Abu Dhabi, United Arab Emirates</span></div></div>
-        <div class="c-item"><div class="ci-icon">📧</div><div class="ci-text"><strong>Email</strong><span>cbmtechuae@gmail.com</span></div></div>
-        <div class="c-item"><div class="ci-icon">📱</div><div class="ci-text"><strong>Phone</strong><span>+971-XX-XXXX-XXXX</span></div></div>
+        <div class="c-item"><div class="ci-icon">📧</div><div class="ci-text"><strong>Email</strong><span>info@cbm95.com</span></div></div>
+        <div class="c-item"><div class="ci-icon">📱</div><div class="ci-text"><strong>Phone</strong><span>+971-52-250-0339</span><span>+971-50-538-2383</span></div></div>
         <div class="c-item"><div class="ci-icon">🌐</div><div class="ci-text"><strong>Website</strong><span>cbm95.com</span></div></div>
       </div>
     </div>
@@ -661,9 +662,9 @@
     btn.disabled = true; btn.textContent = 'Sending…';
     const fd = new FormData(this);
 
-    if (FORMSPREE_ID === 'YOUR_FORM_ID') {
+    if (FORMSPREE_ID === 'xkokavyd') {
       const body = `Name: ${fd.get('name')}%0AEmail: ${fd.get('email')}%0APhone: ${fd.get('phone')||'N/A'}%0AService: ${fd.get('service')||'General'}%0A%0AMessage:%0A${encodeURIComponent(fd.get('message'))}`;
-      window.location.href = `mailto:cbmtechuae@gmail.com?subject=CBM Enquiry – ${fd.get('service')||'General'}&body=${body}`;
+      window.location.href = `mailto:info@cbm.com?subject=CBM Enquiry – ${fd.get('service')||'General'}&body=${body}`;
       btn.disabled = false; btn.textContent = 'Send Message →';
       return;
     }
