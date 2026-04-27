@@ -46,20 +46,26 @@
     transition: background 0.4s;
   }
   nav.scrolled { background: rgba(5,14,24,0.97); }
-  .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
-  .nav-logo img { height: 42px; width: auto; display: block; }
+  .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; min-width: 0; }
+  .nav-logo img { height: 42px; width: auto; display: block; flex-shrink: 0; }
   .logo-fallback {
-    height: 42px; padding: 0 14px;
-    background: linear-gradient(135deg, var(--blue), var(--blue2));
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 800; font-size: 1rem; color: #fff;
-    letter-spacing: 0.04em;
-    box-shadow: 0 0 20px rgba(37,150,190,0.35);
+    display: none; /* only shows if image fails */
+    align-items: center; gap: 0.6rem; flex-shrink: 0;
   }
-  .logo-text { line-height: 1.15; }
-  .logo-text .lt1 { display: block; font-weight: 700; font-size: 0.95rem; color: var(--blue-light); }
-  .logo-text .lt2 { display: block; font-size: 0.62rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+  .logo-fallback .lf-box {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, var(--blue), var(--blue2));
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 0.85rem; color: #fff;
+    letter-spacing: 0.04em; flex-shrink: 0;
+    box-shadow: 0 0 16px rgba(37,150,190,0.35);
+  }
+  .logo-fallback .lf-text .lf1 { display: block; font-weight: 700; font-size: 0.92rem; color: var(--blue-light); line-height: 1.1; }
+  .logo-fallback .lf-text .lf2 { display: block; font-size: 0.6rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+  .logo-text { line-height: 1.15; min-width: 0; }
+  .logo-text .lt1 { display: block; font-weight: 700; font-size: 0.95rem; color: var(--blue-light); white-space: nowrap; }
+  .logo-text .lt2 { display: block; font-size: 0.62rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
   .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
   .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.02em; transition: color 0.25s; }
   .nav-links a:hover { color: var(--white); }
@@ -70,7 +76,7 @@
     box-shadow: 0 4px 18px rgba(37,150,190,0.3); transition: all 0.3s !important;
   }
   .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(37,150,190,0.5) !important; }
-  .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; background: none; border: none; padding: 4px; }
+  .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; background: none; border: none; padding: 4px; flex-shrink: 0; }
   .hamburger span { display: block; width: 24px; height: 2px; background: var(--blue-light); border-radius: 2px; transition: all 0.3s; }
 
   /* ─── HERO ─── */
@@ -96,14 +102,14 @@
   .hero-badge {
     display: inline-flex; align-items: center; gap: 0.55rem;
     background: var(--blue-pale); border: 1px solid var(--blue-border);
-    color: var(--blue-light); padding: 0.4rem 1.1rem; border-radius: 100px;
-    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-    margin-bottom: 1.6rem;
+    color: var(--blue-light); padding: 0.45rem 1.1rem; border-radius: 100px;
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 1.6rem; white-space: nowrap;
     animation: fadeUp 0.7s ease both;
   }
-  .hero-badge .dot { width: 6px; height: 6px; background: var(--blue-light); border-radius: 50%; animation: blink 2s infinite; }
+  .hero-badge .dot { width: 6px; height: 6px; background: var(--blue-light); border-radius: 50%; animation: blink 2s infinite; flex-shrink: 0; }
   h1 {
-    font-size: clamp(2.5rem, 6vw, 4.2rem);
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
     font-weight: 800; line-height: 1.1; letter-spacing: -0.02em;
     margin-bottom: 1.4rem;
     animation: fadeUp 0.7s 0.1s ease both;
@@ -120,14 +126,14 @@
     color: #fff; padding: 0.82rem 2rem; border-radius: 10px; border: none; cursor: pointer;
     font-family: var(--font); font-size: 0.95rem; font-weight: 600; text-decoration: none;
     transition: all 0.3s; box-shadow: 0 6px 24px rgba(37,150,190,0.35);
-    display: inline-flex; align-items: center; gap: 0.5rem;
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
   }
   .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(37,150,190,0.5); }
   .btn-ghost {
     background: transparent; color: var(--white); padding: 0.82rem 2rem; border-radius: 10px;
     border: 1px solid rgba(37,150,190,0.35); cursor: pointer;
     font-family: var(--font); font-size: 0.95rem; font-weight: 500; text-decoration: none;
-    transition: all 0.3s; display: inline-flex; align-items: center; gap: 0.5rem;
+    transition: all 0.3s; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
   }
   .btn-ghost:hover { border-color: var(--blue-light); color: var(--blue-light); transform: translateY(-2px); }
 
@@ -240,7 +246,9 @@
   .c-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1.1rem 1.2rem; background: var(--card); border: 1px solid var(--blue-border); border-radius: var(--radius); }
   .ci-icon { width: 38px; height: 38px; flex-shrink: 0; background: var(--blue-pale); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
   .ci-text strong { display: block; font-size: 0.72rem; font-weight: 700; color: var(--blue-light); letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 0.15rem; }
-  .ci-text span { font-size: 0.88rem; color: var(--muted); }
+  .ci-text span { font-size: 0.88rem; color: var(--muted); display: block; }
+  .ci-text a { font-size: 0.88rem; color: var(--muted); display: block; text-decoration: none; transition: color 0.2s; }
+  .ci-text a:hover { color: var(--blue-light); }
   .cform { background: var(--card); border: 1px solid var(--blue-border); border-radius: 20px; padding: 2.4rem; backdrop-filter: blur(12px); }
   .cform h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 1.6rem; }
   .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -300,15 +308,63 @@
     .about-wrap { grid-template-columns: 1fr; }
     .contact-wrap { grid-template-columns: 1fr; }
   }
+
   @media (max-width: 768px) {
+    /* Navbar: hide the img+text combo; fallback already has icon+text */
+    .logo-text { display: none; }
+    .logo-fallback .lf-text { display: block; }
+    .nav-logo img { height: 36px; }
+    nav { padding: 0.8rem 5%; }
+
     .hamburger { display: flex; }
-    .nav-links { position: fixed; top: 68px; left: 0; right: 0; background: rgba(5,14,24,0.98); border-bottom: 1px solid var(--blue-border); flex-direction: column; padding: 1.5rem 5%; gap: 1.1rem; transform: translateY(-110%); transition: transform 0.4s; z-index: 180; }
-    .nav-links.open { transform: translateY(0); }
+    .nav-links {
+      display: none;
+      position: fixed; top: 62px; left: 0; right: 0;
+      background: rgba(5,14,24,0.98);
+      border-bottom: 1px solid var(--blue-border);
+      flex-direction: column; padding: 1rem 0; gap: 0;
+      z-index: 180;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links li { width: 100%; }
+    .nav-links a {
+      display: block; width: 100%;
+      padding: 0.9rem 5%;
+      font-size: 1rem; color: var(--muted);
+      border-bottom: 1px solid rgba(37,150,190,0.08);
+    }
+    .nav-links a:hover { color: var(--white); background: rgba(37,150,190,0.05); }
+    /* Get in Touch — styled as a highlighted row, not a floating button */
+    .nav-cta {
+      background: transparent !important;
+      color: var(--blue-light) !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      padding: 0.9rem 5% !important;
+      font-size: 1rem !important;
+      border-bottom: none !important;
+    }
+    .nav-cta:hover { background: rgba(37,150,190,0.08) !important; }
+
+    /* Hero fixes */
+    #hero { padding-top: 6.5rem; padding-bottom: 4rem; }
+    .hero-badge { font-size: 0.7rem; letter-spacing: 0.06em; }
+    .hero-btns { flex-direction: column; }
+    .btn-primary, .btn-ghost { width: 100%; text-align: center; }
+
+    /* Misc layout */
     .foot-grid { grid-template-columns: 1fr; gap: 2rem; }
     .mv-grid { grid-template-columns: 1fr; }
     .frow { grid-template-columns: 1fr; }
+    section { padding: 4.5rem 5%; }
   }
-  @media (max-width: 480px) { section { padding: 4rem 5%; } }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 2.1rem; }
+    .hero-sub { font-size: 0.93rem; }
+    .stat-num { font-size: 1.8rem; }
+    .stats-strip { gap: 1.5rem; padding: 1.8rem 5%; }
+  }
 </style>
 </head>
 <body>
@@ -316,8 +372,14 @@
 <!-- NAVBAR -->
 <nav id="nav">
   <a href="#hero" class="nav-logo">
-    <img src="logo.png" alt="CBM Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-    <div class="logo-fallback" style="display:none;">CBM</div>
+    <img src="logo.png" alt="CBM Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';this.nextElementSibling.nextElementSibling.style.display='none';">
+    <div class="logo-fallback">
+      <div class="lf-box">CBM</div>
+      <div class="lf-text">
+        <span class="lf1">CBM Weighing Lab</span>
+        <span class="lf2">Standardization LLC · Abu Dhabi</span>
+      </div>
+    </div>
     <div class="logo-text">
       <span class="lt1">CBM Weighing Lab</span>
       <span class="lt2">Standardization LLC · Abu Dhabi</span>
@@ -341,7 +403,7 @@
   <div class="hero-mesh"></div>
   <div class="hero-grid"></div>
   <div class="hero-content">
-    <div class="hero-badge"><span class="dot"></span>ENAS Approved Lab · ISO-Compliant Biomedical Services · UAE</div>
+    <div class="hero-badge"><span class="dot"></span>ENAS Approved · ISO Compliant · Abu Dhabi, UAE</div>
     <h1>Precision Care for<br><em>Medical Equipment</em></h1>
     <p class="hero-sub">Trusted PPM, calibration, and repair solutions for hospitals, clinics, and laboratories across Abu Dhabi and the UAE. Accuracy that protects lives.</p>
     <div class="hero-btns">
@@ -545,10 +607,32 @@
     <div class="contact-info reveal">
       <p>Ready to schedule a service, request a quote, or enquire about AMC packages? We're here to help.</p>
       <div class="c-items">
-        <div class="c-item"><div class="ci-icon">📍</div><div class="ci-text"><strong>Location</strong><span>Abu Dhabi, United Arab Emirates</span></div></div>
-        <div class="c-item"><div class="ci-icon">📧</div><div class="ci-text"><strong>Email</strong><span>info@cbm95.com</span></div></div>
-        <div class="c-item"><div class="ci-icon">📱</div><div class="ci-text"><strong>Phone</strong><span>+971-2-442-0030</span><br><span>+971-52-250-0339</span><br><span>+971-50-538-2383</span></div></div>
-        <div class="c-item"><div class="ci-icon">🌐</div><div class="ci-text"><strong>Socials</strong><a href="https://www.linkedin.com/in/cbm95/" target="_blank" style="color: var(--blue-light)"><span>LinkedIn</span></a><br><a href="https://www.facebook.com/cbmtechuae/" target="_blank" style="color: var(--blue-light)"><span>Facebook</span></a><br><a href="https://www.instagram.com/cbmtechuae/" target="_blank" style="color: var(--blue-light)"><span>Instagram</span></a></div></div>
+        <div class="c-item">
+          <div class="ci-icon">📍</div>
+          <div class="ci-text"><strong>Location</strong><span>Abu Dhabi, United Arab Emirates</span></div>
+        </div>
+        <div class="c-item">
+          <div class="ci-icon">📧</div>
+          <div class="ci-text"><strong>Email</strong><a href="mailto:info@cbm95.com">info@cbm95.com</a></div>
+        </div>
+        <div class="c-item">
+          <div class="ci-icon">📱</div>
+          <div class="ci-text">
+            <strong>Phone</strong>
+            <a href="tel:+97124420030">+971-2-442-0030</a>
+            <a href="tel:+971522500339">+971-52-250-0339</a>
+            <a href="tel:+971505382383">+971-50-538-2383</a>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="ci-icon">🌐</div>
+          <div class="ci-text">
+            <strong>Socials</strong>
+            <a href="https://www.linkedin.com/in/cbm95/" target="_blank">LinkedIn</a>
+            <a href="https://www.facebook.com/cbmtechuae/" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/cbmtechuae/" target="_blank">Instagram</a>
+          </div>
+        </div>
       </div>
     </div>
     <div class="cform reveal d1">
@@ -623,14 +707,14 @@
 <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
-  // Navbar
+  // Navbar scroll effect
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 50);
     document.getElementById('scrollTop').classList.toggle('show', window.scrollY > 400);
   });
 
-  // Hamburger
+  // Hamburger menu
   document.getElementById('ham').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
   document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open')));
 
@@ -638,7 +722,7 @@
   const ro = new IntersectionObserver(entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('in')), { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 
-  // Count-up
+  // Count-up animation
   const co = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (!e.isIntersecting) return;
@@ -651,28 +735,28 @@
   }, { threshold: 0.5 });
   document.querySelectorAll('[data-count]').forEach(el => co.observe(el));
 
-  // Contact form
-  // To enable real email delivery: sign up free at https://formspree.io
-  // Create a form → set destination to cbmtechuae@gmail.com → paste your form ID below
-  const FORMSPREE_ID = 'xkokavyd'; // ← Replace with your Formspree ID
-
+  // ── CONTACT FORM ──
+  // Formspree ID: xkokavyd → delivers to cbmtechuae@gmail.com
   document.getElementById('cForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     const btn = document.getElementById('fsub');
     btn.disabled = true; btn.textContent = 'Sending…';
     const fd = new FormData(this);
-
-    if (FORMSPREE_ID === 'xkokavyd') {
-      const body = `Name: ${fd.get('name')}%0AEmail: ${fd.get('email')}%0APhone: ${fd.get('phone')||'N/A'}%0AService: ${fd.get('service')||'General'}%0A%0AMessage:%0A${encodeURIComponent(fd.get('message'))}`;
-      window.location.href = `mailto:info@cbm.com?subject=CBM Enquiry – ${fd.get('service')||'General'}&body=${body}`;
-      btn.disabled = false; btn.textContent = 'Send Message →';
-      return;
-    }
     try {
-      const r = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, { method: 'POST', body: fd, headers: { Accept: 'application/json' } });
-      if (r.ok) { document.getElementById('formArea').style.display = 'none'; document.getElementById('fsuccess').style.display = 'block'; }
-      else { btn.textContent = 'Error – Try Again'; btn.disabled = false; }
-    } catch { btn.textContent = 'Error – Try Again'; btn.disabled = false; }
+      const r = await fetch('https://formspree.io/f/xkokavyd', {
+        method: 'POST', body: fd, headers: { Accept: 'application/json' }
+      });
+      if (r.ok) {
+        document.getElementById('formArea').style.display = 'none';
+        document.getElementById('fsuccess').style.display = 'block';
+      } else {
+        btn.textContent = 'Error – Try Again';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Error – Try Again';
+      btn.disabled = false;
+    }
   });
 </script>
 </body>
